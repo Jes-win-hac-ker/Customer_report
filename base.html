@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IT Service Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('submit') }}">Submit Report</a>
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('update') }}">Update Report</a>
+        <a href="{{ url_for('delete') }}">Delete Report</a>
+        <a href="{{ url_for('export') }}">Export CSV</a>
+    </div>
+    <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

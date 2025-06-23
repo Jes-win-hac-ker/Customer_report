@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Update Report</h2>
+<form method="POST">
+    <input type="text" name="term" placeholder="Customer Name or Phone"><br>
+    <textarea name="problem" placeholder="New Problem Description"></textarea><br>
+    <input type="text" name="date_ret" placeholder="New Date Returned (YYYY-MM-DD)"><br>
+    <button type="submit">Update</button>
+</form>
+{% endblock %}
